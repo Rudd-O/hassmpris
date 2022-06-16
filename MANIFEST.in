@@ -1,0 +1,8 @@
+include *.spec
+include Jenkinsfile
+include build.parameters
+include Makefile
+include tox.ini
+include mypy.ini
+graft tests
+global-exclude *.py[cod]
