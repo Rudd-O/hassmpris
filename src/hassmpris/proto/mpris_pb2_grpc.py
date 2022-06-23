@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from hassmpris.proto import mpris_pb2 as mpris__pb2
 
 
@@ -14,6 +15,11 @@ class MPRISStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.Ping = channel.unary_unary(
+                '/MPRIS.MPRIS/Ping',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
         self.Updates = channel.unary_stream(
                 '/MPRIS.MPRIS/Updates',
                 request_serializer=mpris__pb2.MPRISUpdateRequest.SerializeToString,
@@ -38,6 +44,12 @@ class MPRISStub(object):
 
 class MPRISServicer(object):
     """Missing associated documentation comment in .proto file."""
+
+    def Ping(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def Updates(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -66,6 +78,11 @@ class MPRISServicer(object):
 
 def add_MPRISServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'Ping': grpc.unary_unary_rpc_method_handler(
+                    servicer.Ping,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
             'Updates': grpc.unary_stream_rpc_method_handler(
                     servicer.Updates,
                     request_deserializer=mpris__pb2.MPRISUpdateRequest.FromString,
@@ -95,6 +112,23 @@ def add_MPRISServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class MPRIS(object):
     """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def Ping(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/MPRIS.MPRIS/Ping',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Updates(request,

@@ -1,6 +1,8 @@
 syntax = "proto3";
 package MPRIS;
 
+import "google/protobuf/empty.proto";
+
 message MPRISUpdateRequest {
 }
 
@@ -50,6 +52,7 @@ message PlayerPreviousReply {
 }
 
 service MPRIS {
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty) {}
     rpc Updates(MPRISUpdateRequest) returns (stream MPRISUpdateReply) {}
     rpc ChangePlayerStatus(ChangePlayerStatusRequest) returns (ChangePlayerStatusReply) {}
     rpc PlayerNext(PlayerNextRequest) returns (PlayerNextReply) {}
