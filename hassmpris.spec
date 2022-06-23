@@ -9,7 +9,7 @@
 Name:           python-%{_name}
 Version:        0.1.0
 Release:        %{mybuildnumber}%{?dist}
-Summary:        Certificate authority kit, ECDH-powered, SAS-authenticated
+Summary:        Linux desktop multimedia integration with Home Assistant
 
 License:        LGPLv2.1
 URL:            https://github.com/Rudd-O/%{_name}
