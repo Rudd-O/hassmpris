@@ -15,12 +15,18 @@ enum PlayerStatus {
     STOPPED = 5;
 }
 
-message MPRISUpdateReply {
+message MPRISUpdateHeartbeat {
+}
+
+message MPRISPlayerUpdate {
     string player_id = 1;
-    oneof PlayerUpdate {
-        PlayerStatus status = 2;
-        string json_metadata = 3;
-    }
+    PlayerStatus status = 2;
+    string json_metadata = 3;
+}
+
+message MPRISUpdateReply {
+    MPRISUpdateHeartbeat heartbeat = 1;
+    MPRISPlayerUpdate player = 2;
 }
 
 message ChangePlayerStatusRequest {

@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bmpris.proto\x12\x05MPRIS\x1a\x1bgoogle/protobuf/empty.proto\"\x14\n\x12MPRISUpdateRequest\"u\n\x10MPRISUpdateReply\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12%\n\x06status\x18\x02 \x01(\x0e\x32\x13.MPRIS.PlayerStatusH\x00\x12\x17\n\rjson_metadata\x18\x03 \x01(\tH\x00\x42\x0e\n\x0cPlayerUpdate\"\xb6\x01\n\x19\x43hangePlayerStatusRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12?\n\x06status\x18\x02 \x01(\x0e\x32/.MPRIS.ChangePlayerStatusRequest.PlaybackStatus\"E\n\x0ePlaybackStatus\x12\r\n\tUNCHANGED\x10\x00\x12\x0b\n\x07PLAYING\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\x0b\n\x07STOPPED\x10\x03\"\x19\n\x17\x43hangePlayerStatusReply\"&\n\x11PlayerNextRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\"\x11\n\x0fPlayerNextReply\"*\n\x15PlayerPreviousRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\"\x15\n\x13PlayerPreviousReply*Y\n\x0cPlayerStatus\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x08\n\x04GONE\x10\x01\x12\x0c\n\x08\x41PPEARED\x10\x02\x12\x0b\n\x07PLAYING\x10\x03\x12\n\n\x06PAUSED\x10\x04\x12\x0b\n\x07STOPPED\x10\x05\x32\xee\x02\n\x05MPRIS\x12\x38\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00\x12\x41\n\x07Updates\x12\x19.MPRIS.MPRISUpdateRequest\x1a\x17.MPRIS.MPRISUpdateReply\"\x00\x30\x01\x12X\n\x12\x43hangePlayerStatus\x12 .MPRIS.ChangePlayerStatusRequest\x1a\x1e.MPRIS.ChangePlayerStatusReply\"\x00\x12@\n\nPlayerNext\x12\x18.MPRIS.PlayerNextRequest\x1a\x16.MPRIS.PlayerNextReply\"\x00\x12L\n\x0ePlayerPrevious\x12\x1c.MPRIS.PlayerPreviousRequest\x1a\x1a.MPRIS.PlayerPreviousReply\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0bmpris.proto\x12\x05MPRIS\x1a\x1bgoogle/protobuf/empty.proto\"\x14\n\x12MPRISUpdateRequest\"\x16\n\x14MPRISUpdateHeartbeat\"b\n\x11MPRISPlayerUpdate\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12#\n\x06status\x18\x02 \x01(\x0e\x32\x13.MPRIS.PlayerStatus\x12\x15\n\rjson_metadata\x18\x03 \x01(\t\"l\n\x10MPRISUpdateReply\x12.\n\theartbeat\x18\x01 \x01(\x0b\x32\x1b.MPRIS.MPRISUpdateHeartbeat\x12(\n\x06player\x18\x02 \x01(\x0b\x32\x18.MPRIS.MPRISPlayerUpdate\"\xb6\x01\n\x19\x43hangePlayerStatusRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12?\n\x06status\x18\x02 \x01(\x0e\x32/.MPRIS.ChangePlayerStatusRequest.PlaybackStatus\"E\n\x0ePlaybackStatus\x12\r\n\tUNCHANGED\x10\x00\x12\x0b\n\x07PLAYING\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\x0b\n\x07STOPPED\x10\x03\"\x19\n\x17\x43hangePlayerStatusReply\"&\n\x11PlayerNextRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\"\x11\n\x0fPlayerNextReply\"*\n\x15PlayerPreviousRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\"\x15\n\x13PlayerPreviousReply*Y\n\x0cPlayerStatus\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x08\n\x04GONE\x10\x01\x12\x0c\n\x08\x41PPEARED\x10\x02\x12\x0b\n\x07PLAYING\x10\x03\x12\n\n\x06PAUSED\x10\x04\x12\x0b\n\x07STOPPED\x10\x05\x32\xee\x02\n\x05MPRIS\x12\x38\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00\x12\x41\n\x07Updates\x12\x19.MPRIS.MPRISUpdateRequest\x1a\x17.MPRIS.MPRISUpdateReply\"\x00\x30\x01\x12X\n\x12\x43hangePlayerStatus\x12 .MPRIS.ChangePlayerStatusRequest\x1a\x1e.MPRIS.ChangePlayerStatusReply\"\x00\x12@\n\nPlayerNext\x12\x18.MPRIS.PlayerNextRequest\x1a\x16.MPRIS.PlayerNextReply\"\x00\x12L\n\x0ePlayerPrevious\x12\x1c.MPRIS.PlayerPreviousRequest\x1a\x1a.MPRIS.PlayerPreviousReply\"\x00\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
@@ -65,8 +65,8 @@ _PLAYERSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=530,
-  serialized_end=619,
+  serialized_start=645,
+  serialized_end=734,
 )
 _sym_db.RegisterEnumDescriptor(_PLAYERSTATUS)
 
@@ -109,8 +109,8 @@ _CHANGEPLAYERSTATUSREQUEST_PLAYBACKSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=306,
-  serialized_end=375,
+  serialized_start=421,
+  serialized_end=490,
 )
 _sym_db.RegisterEnumDescriptor(_CHANGEPLAYERSTATUSREQUEST_PLAYBACKSTATUS)
 
@@ -140,30 +140,55 @@ _MPRISUPDATEREQUEST = _descriptor.Descriptor(
 )
 
 
-_MPRISUPDATEREPLY = _descriptor.Descriptor(
-  name='MPRISUpdateReply',
-  full_name='MPRIS.MPRISUpdateReply',
+_MPRISUPDATEHEARTBEAT = _descriptor.Descriptor(
+  name='MPRISUpdateHeartbeat',
+  full_name='MPRIS.MPRISUpdateHeartbeat',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=73,
+  serialized_end=95,
+)
+
+
+_MPRISPLAYERUPDATE = _descriptor.Descriptor(
+  name='MPRISPlayerUpdate',
+  full_name='MPRIS.MPRISPlayerUpdate',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='player_id', full_name='MPRIS.MPRISUpdateReply.player_id', index=0,
+      name='player_id', full_name='MPRIS.MPRISPlayerUpdate.player_id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status', full_name='MPRIS.MPRISUpdateReply.status', index=1,
+      name='status', full_name='MPRIS.MPRISPlayerUpdate.status', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='json_metadata', full_name='MPRIS.MPRISUpdateReply.json_metadata', index=2,
+      name='json_metadata', full_name='MPRIS.MPRISPlayerUpdate.json_metadata', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -180,14 +205,48 @@ _MPRISUPDATEREPLY = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
-    _descriptor.OneofDescriptor(
-      name='PlayerUpdate', full_name='MPRIS.MPRISUpdateReply.PlayerUpdate',
-      index=0, containing_type=None,
-      create_key=_descriptor._internal_create_key,
-    fields=[]),
   ],
-  serialized_start=73,
-  serialized_end=190,
+  serialized_start=97,
+  serialized_end=195,
+)
+
+
+_MPRISUPDATEREPLY = _descriptor.Descriptor(
+  name='MPRISUpdateReply',
+  full_name='MPRIS.MPRISUpdateReply',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='heartbeat', full_name='MPRIS.MPRISUpdateReply.heartbeat', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='player', full_name='MPRIS.MPRISUpdateReply.player', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=197,
+  serialized_end=305,
 )
 
 
@@ -226,8 +285,8 @@ _CHANGEPLAYERSTATUSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=193,
-  serialized_end=375,
+  serialized_start=308,
+  serialized_end=490,
 )
 
 
@@ -251,8 +310,8 @@ _CHANGEPLAYERSTATUSREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=377,
-  serialized_end=402,
+  serialized_start=492,
+  serialized_end=517,
 )
 
 
@@ -283,8 +342,8 @@ _PLAYERNEXTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=404,
-  serialized_end=442,
+  serialized_start=519,
+  serialized_end=557,
 )
 
 
@@ -308,8 +367,8 @@ _PLAYERNEXTREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=444,
-  serialized_end=461,
+  serialized_start=559,
+  serialized_end=576,
 )
 
 
@@ -340,8 +399,8 @@ _PLAYERPREVIOUSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=463,
-  serialized_end=505,
+  serialized_start=578,
+  serialized_end=620,
 )
 
 
@@ -365,20 +424,18 @@ _PLAYERPREVIOUSREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=507,
-  serialized_end=528,
+  serialized_start=622,
+  serialized_end=643,
 )
 
-_MPRISUPDATEREPLY.fields_by_name['status'].enum_type = _PLAYERSTATUS
-_MPRISUPDATEREPLY.oneofs_by_name['PlayerUpdate'].fields.append(
-  _MPRISUPDATEREPLY.fields_by_name['status'])
-_MPRISUPDATEREPLY.fields_by_name['status'].containing_oneof = _MPRISUPDATEREPLY.oneofs_by_name['PlayerUpdate']
-_MPRISUPDATEREPLY.oneofs_by_name['PlayerUpdate'].fields.append(
-  _MPRISUPDATEREPLY.fields_by_name['json_metadata'])
-_MPRISUPDATEREPLY.fields_by_name['json_metadata'].containing_oneof = _MPRISUPDATEREPLY.oneofs_by_name['PlayerUpdate']
+_MPRISPLAYERUPDATE.fields_by_name['status'].enum_type = _PLAYERSTATUS
+_MPRISUPDATEREPLY.fields_by_name['heartbeat'].message_type = _MPRISUPDATEHEARTBEAT
+_MPRISUPDATEREPLY.fields_by_name['player'].message_type = _MPRISPLAYERUPDATE
 _CHANGEPLAYERSTATUSREQUEST.fields_by_name['status'].enum_type = _CHANGEPLAYERSTATUSREQUEST_PLAYBACKSTATUS
 _CHANGEPLAYERSTATUSREQUEST_PLAYBACKSTATUS.containing_type = _CHANGEPLAYERSTATUSREQUEST
 DESCRIPTOR.message_types_by_name['MPRISUpdateRequest'] = _MPRISUPDATEREQUEST
+DESCRIPTOR.message_types_by_name['MPRISUpdateHeartbeat'] = _MPRISUPDATEHEARTBEAT
+DESCRIPTOR.message_types_by_name['MPRISPlayerUpdate'] = _MPRISPLAYERUPDATE
 DESCRIPTOR.message_types_by_name['MPRISUpdateReply'] = _MPRISUPDATEREPLY
 DESCRIPTOR.message_types_by_name['ChangePlayerStatusRequest'] = _CHANGEPLAYERSTATUSREQUEST
 DESCRIPTOR.message_types_by_name['ChangePlayerStatusReply'] = _CHANGEPLAYERSTATUSREPLY
@@ -395,6 +452,20 @@ MPRISUpdateRequest = _reflection.GeneratedProtocolMessageType('MPRISUpdateReques
   # @@protoc_insertion_point(class_scope:MPRIS.MPRISUpdateRequest)
   })
 _sym_db.RegisterMessage(MPRISUpdateRequest)
+
+MPRISUpdateHeartbeat = _reflection.GeneratedProtocolMessageType('MPRISUpdateHeartbeat', (_message.Message,), {
+  'DESCRIPTOR' : _MPRISUPDATEHEARTBEAT,
+  '__module__' : 'mpris_pb2'
+  # @@protoc_insertion_point(class_scope:MPRIS.MPRISUpdateHeartbeat)
+  })
+_sym_db.RegisterMessage(MPRISUpdateHeartbeat)
+
+MPRISPlayerUpdate = _reflection.GeneratedProtocolMessageType('MPRISPlayerUpdate', (_message.Message,), {
+  'DESCRIPTOR' : _MPRISPLAYERUPDATE,
+  '__module__' : 'mpris_pb2'
+  # @@protoc_insertion_point(class_scope:MPRIS.MPRISPlayerUpdate)
+  })
+_sym_db.RegisterMessage(MPRISPlayerUpdate)
 
 MPRISUpdateReply = _reflection.GeneratedProtocolMessageType('MPRISUpdateReply', (_message.Message,), {
   'DESCRIPTOR' : _MPRISUPDATEREPLY,
@@ -454,8 +525,8 @@ _MPRIS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=622,
-  serialized_end=988,
+  serialized_start=737,
+  serialized_end=1103,
   methods=[
   _descriptor.MethodDescriptor(
     name='Ping',
