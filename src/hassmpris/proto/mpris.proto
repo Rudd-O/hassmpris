@@ -20,6 +20,8 @@ message MPRISPlayerProperties {
     optional bool CanPause = 2;
     optional bool CanPlay = 3;
     optional bool CanSeek = 4;
+    optional bool CanGoNext = 5;
+    optional bool CanGoPrevious = 6;
 }
 
 message MPRISUpdateHeartbeat {
