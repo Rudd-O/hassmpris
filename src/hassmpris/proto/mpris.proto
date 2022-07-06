@@ -15,6 +15,13 @@ enum PlayerStatus {
     STOPPED = 5;
 }
 
+message MPRISPlayerProperties {
+    optional bool CanControl = 1;
+    optional bool CanPause = 2;
+    optional bool CanPlay = 3;
+    optional bool CanSeek = 4;
+}
+
 message MPRISUpdateHeartbeat {
 }
 
@@ -22,6 +29,7 @@ message MPRISPlayerUpdate {
     string player_id = 1;
     PlayerStatus status = 2;
     string json_metadata = 3;
+    MPRISPlayerProperties properties = 4;
 }
 
 message MPRISUpdateReply {

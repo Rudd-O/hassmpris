@@ -20,6 +20,7 @@ clean:
 src/hassmpris/proto/mpris_pb2.py src/hassmpris/proto/mpris_grpc.py src/hassmpris/proto/mpris_pb2_grpc.py: src/hassmpris/proto/mpris.proto
 	python3 -m grpc_tools.protoc \
 	  src/hassmpris/proto/mpris.proto \
+	  --experimental_allow_proto3_optional \
 	  --proto_path=src/hassmpris/proto \
 	  --grpc_python_out=src/hassmpris/proto \
 	  --grpclib_python_out=src/hassmpris/proto \
