@@ -30,15 +30,15 @@ class MPRISStub(object):
                 request_serializer=mpris__pb2.ChangePlayerStatusRequest.SerializeToString,
                 response_deserializer=mpris__pb2.ChangePlayerStatusReply.FromString,
                 )
-        self.PlayerNext = channel.unary_unary(
-                '/MPRIS.MPRIS/PlayerNext',
-                request_serializer=mpris__pb2.PlayerNextRequest.SerializeToString,
-                response_deserializer=mpris__pb2.PlayerNextReply.FromString,
+        self.Next = channel.unary_unary(
+                '/MPRIS.MPRIS/Next',
+                request_serializer=mpris__pb2.NextRequest.SerializeToString,
+                response_deserializer=mpris__pb2.NextReply.FromString,
                 )
-        self.PlayerPrevious = channel.unary_unary(
-                '/MPRIS.MPRIS/PlayerPrevious',
-                request_serializer=mpris__pb2.PlayerPreviousRequest.SerializeToString,
-                response_deserializer=mpris__pb2.PlayerPreviousReply.FromString,
+        self.Previous = channel.unary_unary(
+                '/MPRIS.MPRIS/Previous',
+                request_serializer=mpris__pb2.PreviousRequest.SerializeToString,
+                response_deserializer=mpris__pb2.PreviousReply.FromString,
                 )
         self.Seek = channel.unary_unary(
                 '/MPRIS.MPRIS/Seek',
@@ -68,13 +68,13 @@ class MPRISServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def PlayerNext(self, request, context):
+    def Next(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def PlayerPrevious(self, request, context):
+    def Previous(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -104,15 +104,15 @@ def add_MPRISServicer_to_server(servicer, server):
                     request_deserializer=mpris__pb2.ChangePlayerStatusRequest.FromString,
                     response_serializer=mpris__pb2.ChangePlayerStatusReply.SerializeToString,
             ),
-            'PlayerNext': grpc.unary_unary_rpc_method_handler(
-                    servicer.PlayerNext,
-                    request_deserializer=mpris__pb2.PlayerNextRequest.FromString,
-                    response_serializer=mpris__pb2.PlayerNextReply.SerializeToString,
+            'Next': grpc.unary_unary_rpc_method_handler(
+                    servicer.Next,
+                    request_deserializer=mpris__pb2.NextRequest.FromString,
+                    response_serializer=mpris__pb2.NextReply.SerializeToString,
             ),
-            'PlayerPrevious': grpc.unary_unary_rpc_method_handler(
-                    servicer.PlayerPrevious,
-                    request_deserializer=mpris__pb2.PlayerPreviousRequest.FromString,
-                    response_serializer=mpris__pb2.PlayerPreviousReply.SerializeToString,
+            'Previous': grpc.unary_unary_rpc_method_handler(
+                    servicer.Previous,
+                    request_deserializer=mpris__pb2.PreviousRequest.FromString,
+                    response_serializer=mpris__pb2.PreviousReply.SerializeToString,
             ),
             'Seek': grpc.unary_unary_rpc_method_handler(
                     servicer.Seek,
@@ -181,7 +181,7 @@ class MPRIS(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def PlayerNext(request,
+    def Next(request,
             target,
             options=(),
             channel_credentials=None,
@@ -191,14 +191,14 @@ class MPRIS(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/MPRIS.MPRIS/PlayerNext',
-            mpris__pb2.PlayerNextRequest.SerializeToString,
-            mpris__pb2.PlayerNextReply.FromString,
+        return grpc.experimental.unary_unary(request, target, '/MPRIS.MPRIS/Next',
+            mpris__pb2.NextRequest.SerializeToString,
+            mpris__pb2.NextReply.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def PlayerPrevious(request,
+    def Previous(request,
             target,
             options=(),
             channel_credentials=None,
@@ -208,9 +208,9 @@ class MPRIS(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/MPRIS.MPRIS/PlayerPrevious',
-            mpris__pb2.PlayerPreviousRequest.SerializeToString,
-            mpris__pb2.PlayerPreviousReply.FromString,
+        return grpc.experimental.unary_unary(request, target, '/MPRIS.MPRIS/Previous',
+            mpris__pb2.PreviousRequest.SerializeToString,
+            mpris__pb2.PreviousReply.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

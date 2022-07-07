@@ -61,25 +61,25 @@ message SeekReply {
 message ChangePlayerStatusReply {
 }
 
-message PlayerNextRequest {
+message NextRequest {
     string player_id = 1;
 }
 
-message PlayerNextReply {
+message NextReply {
 }
 
-message PlayerPreviousRequest {
+message PreviousRequest {
     string player_id = 1;
 }
 
-message PlayerPreviousReply {
+message PreviousReply {
 }
 
 service MPRIS {
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty) {}
     rpc Updates(MPRISUpdateRequest) returns (stream MPRISUpdateReply) {}
     rpc ChangePlayerStatus(ChangePlayerStatusRequest) returns (ChangePlayerStatusReply) {}
-    rpc PlayerNext(PlayerNextRequest) returns (PlayerNextReply) {}
-    rpc PlayerPrevious(PlayerPreviousRequest) returns (PlayerPreviousReply) {}
+    rpc Next(NextRequest) returns (NextReply) {}
+    rpc Previous(PreviousRequest) returns (PreviousReply) {}
     rpc Seek(SeekRequest) returns (SeekReply) {}
 }

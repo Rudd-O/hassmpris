@@ -28,11 +28,11 @@ class MPRISBase(abc.ABC):
         pass
 
     @abc.abstractmethod
-    async def PlayerNext(self, stream: 'grpclib.server.Stream[mpris_pb2.PlayerNextRequest, mpris_pb2.PlayerNextReply]') -> None:
+    async def Next(self, stream: 'grpclib.server.Stream[mpris_pb2.NextRequest, mpris_pb2.NextReply]') -> None:
         pass
 
     @abc.abstractmethod
-    async def PlayerPrevious(self, stream: 'grpclib.server.Stream[mpris_pb2.PlayerPreviousRequest, mpris_pb2.PlayerPreviousReply]') -> None:
+    async def Previous(self, stream: 'grpclib.server.Stream[mpris_pb2.PreviousRequest, mpris_pb2.PreviousReply]') -> None:
         pass
 
     @abc.abstractmethod
@@ -59,17 +59,17 @@ class MPRISBase(abc.ABC):
                 mpris_pb2.ChangePlayerStatusRequest,
                 mpris_pb2.ChangePlayerStatusReply,
             ),
-            '/MPRIS.MPRIS/PlayerNext': grpclib.const.Handler(
-                self.PlayerNext,
+            '/MPRIS.MPRIS/Next': grpclib.const.Handler(
+                self.Next,
                 grpclib.const.Cardinality.UNARY_UNARY,
-                mpris_pb2.PlayerNextRequest,
-                mpris_pb2.PlayerNextReply,
+                mpris_pb2.NextRequest,
+                mpris_pb2.NextReply,
             ),
-            '/MPRIS.MPRIS/PlayerPrevious': grpclib.const.Handler(
-                self.PlayerPrevious,
+            '/MPRIS.MPRIS/Previous': grpclib.const.Handler(
+                self.Previous,
                 grpclib.const.Cardinality.UNARY_UNARY,
-                mpris_pb2.PlayerPreviousRequest,
-                mpris_pb2.PlayerPreviousReply,
+                mpris_pb2.PreviousRequest,
+                mpris_pb2.PreviousReply,
             ),
             '/MPRIS.MPRIS/Seek': grpclib.const.Handler(
                 self.Seek,
@@ -101,17 +101,17 @@ class MPRISStub:
             mpris_pb2.ChangePlayerStatusRequest,
             mpris_pb2.ChangePlayerStatusReply,
         )
-        self.PlayerNext = grpclib.client.UnaryUnaryMethod(
+        self.Next = grpclib.client.UnaryUnaryMethod(
             channel,
-            '/MPRIS.MPRIS/PlayerNext',
-            mpris_pb2.PlayerNextRequest,
-            mpris_pb2.PlayerNextReply,
+            '/MPRIS.MPRIS/Next',
+            mpris_pb2.NextRequest,
+            mpris_pb2.NextReply,
         )
-        self.PlayerPrevious = grpclib.client.UnaryUnaryMethod(
+        self.Previous = grpclib.client.UnaryUnaryMethod(
             channel,
-            '/MPRIS.MPRIS/PlayerPrevious',
-            mpris_pb2.PlayerPreviousRequest,
-            mpris_pb2.PlayerPreviousReply,
+            '/MPRIS.MPRIS/Previous',
+            mpris_pb2.PreviousRequest,
+            mpris_pb2.PreviousReply,
         )
         self.Seek = grpclib.client.UnaryUnaryMethod(
             channel,
