@@ -50,6 +50,14 @@ message ChangePlayerStatusRequest {
     PlaybackStatus status = 2;
 }
 
+message SeekRequest {
+    string player_id = 1;
+    float position = 2;  // Position in seconds (float for fractionals).
+}
+
+message SeekReply {
+}
+
 message ChangePlayerStatusReply {
 }
 
@@ -73,4 +81,5 @@ service MPRIS {
     rpc ChangePlayerStatus(ChangePlayerStatusRequest) returns (ChangePlayerStatusReply) {}
     rpc PlayerNext(PlayerNextRequest) returns (PlayerNextReply) {}
     rpc PlayerPrevious(PlayerPreviousRequest) returns (PlayerPreviousReply) {}
+    rpc Seek(SeekRequest) returns (SeekReply) {}
 }

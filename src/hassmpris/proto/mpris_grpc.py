@@ -35,6 +35,10 @@ class MPRISBase(abc.ABC):
     async def PlayerPrevious(self, stream: 'grpclib.server.Stream[mpris_pb2.PlayerPreviousRequest, mpris_pb2.PlayerPreviousReply]') -> None:
         pass
 
+    @abc.abstractmethod
+    async def Seek(self, stream: 'grpclib.server.Stream[mpris_pb2.SeekRequest, mpris_pb2.SeekReply]') -> None:
+        pass
+
     def __mapping__(self) -> typing.Dict[str, grpclib.const.Handler]:
         return {
             '/MPRIS.MPRIS/Ping': grpclib.const.Handler(
@@ -66,6 +70,12 @@ class MPRISBase(abc.ABC):
                 grpclib.const.Cardinality.UNARY_UNARY,
                 mpris_pb2.PlayerPreviousRequest,
                 mpris_pb2.PlayerPreviousReply,
+            ),
+            '/MPRIS.MPRIS/Seek': grpclib.const.Handler(
+                self.Seek,
+                grpclib.const.Cardinality.UNARY_UNARY,
+                mpris_pb2.SeekRequest,
+                mpris_pb2.SeekReply,
             ),
         }
 
@@ -102,4 +112,10 @@ class MPRISStub:
             '/MPRIS.MPRIS/PlayerPrevious',
             mpris_pb2.PlayerPreviousRequest,
             mpris_pb2.PlayerPreviousReply,
+        )
+        self.Seek = grpclib.client.UnaryUnaryMethod(
+            channel,
+            '/MPRIS.MPRIS/Seek',
+            mpris_pb2.SeekRequest,
+            mpris_pb2.SeekReply,
         )
