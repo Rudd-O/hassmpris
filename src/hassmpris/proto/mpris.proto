@@ -16,12 +16,15 @@ enum PlayerStatus {
 }
 
 message MPRISPlayerProperties {
-    optional bool CanControl = 1;
-    optional bool CanPause = 2;
-    optional bool CanPlay = 3;
-    optional bool CanSeek = 4;
-    optional bool CanGoNext = 5;
-    optional bool CanGoPrevious = 6;
+    optional bool CanControl = 1;    // https://specifications.freedesktop.org/mpris-spec/2.2/Player_Interface.html#Property:CanControl
+    optional bool CanPause = 2;      // https://specifications.freedesktop.org/mpris-spec/2.2/Player_Interface.html#Property:CanPause
+    optional bool CanPlay = 3;       // https://specifications.freedesktop.org/mpris-spec/2.2/Player_Interface.html#Property:CanPlay
+    optional bool CanSeek = 4;       // https://specifications.freedesktop.org/mpris-spec/2.2/Player_Interface.html#Property:CanSeek
+    optional bool CanGoNext = 5;     // https://specifications.freedesktop.org/mpris-spec/2.2/Player_Interface.html#Property:CanGoNext
+    optional bool CanGoPrevious = 6; // https://specifications.freedesktop.org/mpris-spec/2.2/Player_Interface.html#Property:CanGoPrevious
+    optional double Rate = 7;        // https://specifications.freedesktop.org/mpris-spec/2.2/Player_Interface.html#Property:Rate
+    optional double MinimumRate = 8; // https://specifications.freedesktop.org/mpris-spec/2.2/Player_Interface.html#Property:MinimumRate
+    optional double MaximumRate = 9; // https://specifications.freedesktop.org/mpris-spec/2.2/Player_Interface.html#Property:MaximumRate
 }
 
 message MPRISUpdateHeartbeat {
