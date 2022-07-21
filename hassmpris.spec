@@ -7,7 +7,7 @@
 %define mybuildnumber %{?build_number}%{?!build_number:1}
 
 Name:           python-%{_name}
-Version:        0.1.15
+Version:        0.1.16
 Release:        %{mybuildnumber}%{?dist}
 Summary:        Linux desktop multimedia integration with Home Assistant
 
