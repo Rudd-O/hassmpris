@@ -30,11 +30,16 @@ message MPRISPlayerProperties {
 message MPRISUpdateHeartbeat {
 }
 
+message MPRISPlayerSeeked {
+    float position = 1; // New position in seconds from the start of the track (float for fractionals).
+}
+
 message MPRISPlayerUpdate {
     string player_id = 1;
     PlayerStatus status = 2;
     string json_metadata = 3;
     MPRISPlayerProperties properties = 4;
+    MPRISPlayerSeeked seeked = 5;
 }
 
 message MPRISUpdateReply {
@@ -55,10 +60,19 @@ message ChangePlayerStatusRequest {
 
 message SeekRequest {
     string player_id = 1;
-    float position = 2;  // Position in seconds (float for fractionals).
+    float offset = 2;  // Position in seconds relative to current position (float for fractionals).
 }
 
 message SeekReply {
+}
+
+message SetPositionRequest {
+    string player_id = 1;
+    string track_id = 2;
+    float position = 3;  // Position in seconds relative to beginning of track (float for fractionals).
+}
+
+message SetPositionReply {
 }
 
 message ChangePlayerStatusReply {
@@ -85,4 +99,5 @@ service MPRIS {
     rpc Next(NextRequest) returns (NextReply) {}
     rpc Previous(PreviousRequest) returns (PreviousReply) {}
     rpc Seek(SeekRequest) returns (SeekReply) {}
+    rpc SetPosition(SetPositionRequest) returns (SetPositionReply) {}
 }

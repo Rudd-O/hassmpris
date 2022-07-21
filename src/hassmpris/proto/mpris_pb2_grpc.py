@@ -45,6 +45,11 @@ class MPRISStub(object):
                 request_serializer=mpris__pb2.SeekRequest.SerializeToString,
                 response_deserializer=mpris__pb2.SeekReply.FromString,
                 )
+        self.SetPosition = channel.unary_unary(
+                '/MPRIS.MPRIS/SetPosition',
+                request_serializer=mpris__pb2.SetPositionRequest.SerializeToString,
+                response_deserializer=mpris__pb2.SetPositionReply.FromString,
+                )
 
 
 class MPRISServicer(object):
@@ -86,6 +91,12 @@ class MPRISServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetPosition(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MPRISServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -118,6 +129,11 @@ def add_MPRISServicer_to_server(servicer, server):
                     servicer.Seek,
                     request_deserializer=mpris__pb2.SeekRequest.FromString,
                     response_serializer=mpris__pb2.SeekReply.SerializeToString,
+            ),
+            'SetPosition': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetPosition,
+                    request_deserializer=mpris__pb2.SetPositionRequest.FromString,
+                    response_serializer=mpris__pb2.SetPositionReply.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -228,5 +244,22 @@ class MPRIS(object):
         return grpc.experimental.unary_unary(request, target, '/MPRIS.MPRIS/Seek',
             mpris__pb2.SeekRequest.SerializeToString,
             mpris__pb2.SeekReply.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetPosition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/MPRIS.MPRIS/SetPosition',
+            mpris__pb2.SetPositionRequest.SerializeToString,
+            mpris__pb2.SetPositionReply.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
