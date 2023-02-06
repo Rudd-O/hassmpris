@@ -16,7 +16,7 @@ URL:            https://github.com/Rudd-O/%{_name}
 Source:         %{url}/archive/v%{version}/%{_name}-%{version}.tar.gz
 
 BuildArch:      noarch
-BuildRequires:  python3-devel, python-types-cryptography, openssl, python3-grpclib
+BuildRequires:  python3-devel, python-types-cryptography, openssl
 
 %global _description %{expand:
 This package contains a kit that allows you to develop clients and servers
