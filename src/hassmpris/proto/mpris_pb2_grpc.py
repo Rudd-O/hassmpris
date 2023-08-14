@@ -45,6 +45,11 @@ class MPRISStub(object):
                 request_serializer=mpris__pb2.SeekRequest.SerializeToString,
                 response_deserializer=mpris__pb2.SeekReply.FromString,
                 )
+        self.SeekAbsolute = channel.unary_unary(
+                '/MPRIS.MPRIS/SeekAbsolute',
+                request_serializer=mpris__pb2.SeekAbsoluteRequest.SerializeToString,
+                response_deserializer=mpris__pb2.SeekAbsoluteReply.FromString,
+                )
         self.SetPosition = channel.unary_unary(
                 '/MPRIS.MPRIS/SetPosition',
                 request_serializer=mpris__pb2.SetPositionRequest.SerializeToString,
@@ -91,6 +96,12 @@ class MPRISServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SeekAbsolute(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def SetPosition(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -129,6 +140,11 @@ def add_MPRISServicer_to_server(servicer, server):
                     servicer.Seek,
                     request_deserializer=mpris__pb2.SeekRequest.FromString,
                     response_serializer=mpris__pb2.SeekReply.SerializeToString,
+            ),
+            'SeekAbsolute': grpc.unary_unary_rpc_method_handler(
+                    servicer.SeekAbsolute,
+                    request_deserializer=mpris__pb2.SeekAbsoluteRequest.FromString,
+                    response_serializer=mpris__pb2.SeekAbsoluteReply.SerializeToString,
             ),
             'SetPosition': grpc.unary_unary_rpc_method_handler(
                     servicer.SetPosition,
@@ -244,6 +260,23 @@ class MPRIS(object):
         return grpc.experimental.unary_unary(request, target, '/MPRIS.MPRIS/Seek',
             mpris__pb2.SeekRequest.SerializeToString,
             mpris__pb2.SeekReply.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SeekAbsolute(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/MPRIS.MPRIS/SeekAbsolute',
+            mpris__pb2.SeekAbsoluteRequest.SerializeToString,
+            mpris__pb2.SeekAbsoluteReply.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

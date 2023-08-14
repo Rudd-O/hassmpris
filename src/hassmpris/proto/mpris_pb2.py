@@ -16,7 +16,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bmpris.proto\x12\x05MPRIS\x1a\x1bgoogle/protobuf/empty.proto\"\x14\n\x12MPRISUpdateRequest\"\xeb\x02\n\x15MPRISPlayerProperties\x12\x17\n\nCanControl\x18\x01 \x01(\x08H\x00\x88\x01\x01\x12\x15\n\x08\x43\x61nPause\x18\x02 \x01(\x08H\x01\x88\x01\x01\x12\x14\n\x07\x43\x61nPlay\x18\x03 \x01(\x08H\x02\x88\x01\x01\x12\x14\n\x07\x43\x61nSeek\x18\x04 \x01(\x08H\x03\x88\x01\x01\x12\x16\n\tCanGoNext\x18\x05 \x01(\x08H\x04\x88\x01\x01\x12\x1a\n\rCanGoPrevious\x18\x06 \x01(\x08H\x05\x88\x01\x01\x12\x11\n\x04Rate\x18\x07 \x01(\x01H\x06\x88\x01\x01\x12\x18\n\x0bMinimumRate\x18\x08 \x01(\x01H\x07\x88\x01\x01\x12\x18\n\x0bMaximumRate\x18\t \x01(\x01H\x08\x88\x01\x01\x42\r\n\x0b_CanControlB\x0b\n\t_CanPauseB\n\n\x08_CanPlayB\n\n\x08_CanSeekB\x0c\n\n_CanGoNextB\x10\n\x0e_CanGoPreviousB\x07\n\x05_RateB\x0e\n\x0c_MinimumRateB\x0e\n\x0c_MaximumRate\"\x16\n\x14MPRISUpdateHeartbeat\"%\n\x11MPRISPlayerSeeked\x12\x10\n\x08position\x18\x01 \x01(\x02\"\xbe\x01\n\x11MPRISPlayerUpdate\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12#\n\x06status\x18\x02 \x01(\x0e\x32\x13.MPRIS.PlayerStatus\x12\x15\n\rjson_metadata\x18\x03 \x01(\t\x12\x30\n\nproperties\x18\x04 \x01(\x0b\x32\x1c.MPRIS.MPRISPlayerProperties\x12(\n\x06seeked\x18\x05 \x01(\x0b\x32\x18.MPRIS.MPRISPlayerSeeked\"l\n\x10MPRISUpdateReply\x12.\n\theartbeat\x18\x01 \x01(\x0b\x32\x1b.MPRIS.MPRISUpdateHeartbeat\x12(\n\x06player\x18\x02 \x01(\x0b\x32\x18.MPRIS.MPRISPlayerUpdate\"\xb6\x01\n\x19\x43hangePlayerStatusRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12?\n\x06status\x18\x02 \x01(\x0e\x32/.MPRIS.ChangePlayerStatusRequest.PlaybackStatus\"E\n\x0ePlaybackStatus\x12\r\n\tUNCHANGED\x10\x00\x12\x0b\n\x07PLAYING\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\x0b\n\x07STOPPED\x10\x03\"0\n\x0bSeekRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12\x0e\n\x06offset\x18\x02 \x01(\x02\"\x0b\n\tSeekReply\"K\n\x12SetPositionRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12\x10\n\x08track_id\x18\x02 \x01(\t\x12\x10\n\x08position\x18\x03 \x01(\x02\"\x12\n\x10SetPositionReply\"\x19\n\x17\x43hangePlayerStatusReply\" \n\x0bNextRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\"\x0b\n\tNextReply\"$\n\x0fPreviousRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\"\x0f\n\rPreviousReply*Y\n\x0cPlayerStatus\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x08\n\x04GONE\x10\x01\x12\x0c\n\x08\x41PPEARED\x10\x02\x12\x0b\n\x07PLAYING\x10\x03\x12\n\n\x06PAUSED\x10\x04\x12\x0b\n\x07STOPPED\x10\x05\x32\xbf\x03\n\x05MPRIS\x12\x38\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00\x12\x41\n\x07Updates\x12\x19.MPRIS.MPRISUpdateRequest\x1a\x17.MPRIS.MPRISUpdateReply\"\x00\x30\x01\x12X\n\x12\x43hangePlayerStatus\x12 .MPRIS.ChangePlayerStatusRequest\x1a\x1e.MPRIS.ChangePlayerStatusReply\"\x00\x12.\n\x04Next\x12\x12.MPRIS.NextRequest\x1a\x10.MPRIS.NextReply\"\x00\x12:\n\x08Previous\x12\x16.MPRIS.PreviousRequest\x1a\x14.MPRIS.PreviousReply\"\x00\x12.\n\x04Seek\x12\x12.MPRIS.SeekRequest\x1a\x10.MPRIS.SeekReply\"\x00\x12\x43\n\x0bSetPosition\x12\x19.MPRIS.SetPositionRequest\x1a\x17.MPRIS.SetPositionReply\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bmpris.proto\x12\x05MPRIS\x1a\x1bgoogle/protobuf/empty.proto\"\x14\n\x12MPRISUpdateRequest\"\xeb\x02\n\x15MPRISPlayerProperties\x12\x17\n\nCanControl\x18\x01 \x01(\x08H\x00\x88\x01\x01\x12\x15\n\x08\x43\x61nPause\x18\x02 \x01(\x08H\x01\x88\x01\x01\x12\x14\n\x07\x43\x61nPlay\x18\x03 \x01(\x08H\x02\x88\x01\x01\x12\x14\n\x07\x43\x61nSeek\x18\x04 \x01(\x08H\x03\x88\x01\x01\x12\x16\n\tCanGoNext\x18\x05 \x01(\x08H\x04\x88\x01\x01\x12\x1a\n\rCanGoPrevious\x18\x06 \x01(\x08H\x05\x88\x01\x01\x12\x11\n\x04Rate\x18\x07 \x01(\x01H\x06\x88\x01\x01\x12\x18\n\x0bMinimumRate\x18\x08 \x01(\x01H\x07\x88\x01\x01\x12\x18\n\x0bMaximumRate\x18\t \x01(\x01H\x08\x88\x01\x01\x42\r\n\x0b_CanControlB\x0b\n\t_CanPauseB\n\n\x08_CanPlayB\n\n\x08_CanSeekB\x0c\n\n_CanGoNextB\x10\n\x0e_CanGoPreviousB\x07\n\x05_RateB\x0e\n\x0c_MinimumRateB\x0e\n\x0c_MaximumRate\"\x16\n\x14MPRISUpdateHeartbeat\"%\n\x11MPRISPlayerSeeked\x12\x10\n\x08position\x18\x01 \x01(\x02\"\xbe\x01\n\x11MPRISPlayerUpdate\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12#\n\x06status\x18\x02 \x01(\x0e\x32\x13.MPRIS.PlayerStatus\x12\x15\n\rjson_metadata\x18\x03 \x01(\t\x12\x30\n\nproperties\x18\x04 \x01(\x0b\x32\x1c.MPRIS.MPRISPlayerProperties\x12(\n\x06seeked\x18\x05 \x01(\x0b\x32\x18.MPRIS.MPRISPlayerSeeked\"l\n\x10MPRISUpdateReply\x12.\n\theartbeat\x18\x01 \x01(\x0b\x32\x1b.MPRIS.MPRISUpdateHeartbeat\x12(\n\x06player\x18\x02 \x01(\x0b\x32\x18.MPRIS.MPRISPlayerUpdate\"\xb6\x01\n\x19\x43hangePlayerStatusRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12?\n\x06status\x18\x02 \x01(\x0e\x32/.MPRIS.ChangePlayerStatusRequest.PlaybackStatus\"E\n\x0ePlaybackStatus\x12\r\n\tUNCHANGED\x10\x00\x12\x0b\n\x07PLAYING\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\x0b\n\x07STOPPED\x10\x03\"0\n\x0bSeekRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12\x0e\n\x06offset\x18\x02 \x01(\x02\"\x0b\n\tSeekReply\"K\n\x12SetPositionRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12\x10\n\x08track_id\x18\x02 \x01(\t\x12\x10\n\x08position\x18\x03 \x01(\x02\"\x12\n\x10SetPositionReply\"\x19\n\x17\x43hangePlayerStatusReply\" \n\x0bNextRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\"\x0b\n\tNextReply\"$\n\x0fPreviousRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\"\x0f\n\rPreviousReply\":\n\x13SeekAbsoluteRequest\x12\x11\n\tplayer_id\x18\x01 \x01(\t\x12\x10\n\x08position\x18\x02 \x01(\x02\"\x13\n\x11SeekAbsoluteReply*Y\n\x0cPlayerStatus\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x08\n\x04GONE\x10\x01\x12\x0c\n\x08\x41PPEARED\x10\x02\x12\x0b\n\x07PLAYING\x10\x03\x12\n\n\x06PAUSED\x10\x04\x12\x0b\n\x07STOPPED\x10\x05\x32\x87\x04\n\x05MPRIS\x12\x38\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00\x12\x41\n\x07Updates\x12\x19.MPRIS.MPRISUpdateRequest\x1a\x17.MPRIS.MPRISUpdateReply\"\x00\x30\x01\x12X\n\x12\x43hangePlayerStatus\x12 .MPRIS.ChangePlayerStatusRequest\x1a\x1e.MPRIS.ChangePlayerStatusReply\"\x00\x12.\n\x04Next\x12\x12.MPRIS.NextRequest\x1a\x10.MPRIS.NextReply\"\x00\x12:\n\x08Previous\x12\x16.MPRIS.PreviousRequest\x1a\x14.MPRIS.PreviousReply\"\x00\x12.\n\x04Seek\x12\x12.MPRIS.SeekRequest\x1a\x10.MPRIS.SeekReply\"\x00\x12\x46\n\x0cSeekAbsolute\x12\x1a.MPRIS.SeekAbsoluteRequest\x1a\x18.MPRIS.SeekAbsoluteReply\"\x00\x12\x43\n\x0bSetPosition\x12\x19.MPRIS.SetPositionRequest\x1a\x17.MPRIS.SetPositionReply\"\x00\x62\x06proto3')
 
 _PLAYERSTATUS = DESCRIPTOR.enum_types_by_name['PlayerStatus']
 PlayerStatus = enum_type_wrapper.EnumTypeWrapper(_PLAYERSTATUS)
@@ -44,6 +44,8 @@ _NEXTREQUEST = DESCRIPTOR.message_types_by_name['NextRequest']
 _NEXTREPLY = DESCRIPTOR.message_types_by_name['NextReply']
 _PREVIOUSREQUEST = DESCRIPTOR.message_types_by_name['PreviousRequest']
 _PREVIOUSREPLY = DESCRIPTOR.message_types_by_name['PreviousReply']
+_SEEKABSOLUTEREQUEST = DESCRIPTOR.message_types_by_name['SeekAbsoluteRequest']
+_SEEKABSOLUTEREPLY = DESCRIPTOR.message_types_by_name['SeekAbsoluteReply']
 _CHANGEPLAYERSTATUSREQUEST_PLAYBACKSTATUS = _CHANGEPLAYERSTATUSREQUEST.enum_types_by_name['PlaybackStatus']
 MPRISUpdateRequest = _reflection.GeneratedProtocolMessageType('MPRISUpdateRequest', (_message.Message,), {
   'DESCRIPTOR' : _MPRISUPDATEREQUEST,
@@ -157,12 +159,26 @@ PreviousReply = _reflection.GeneratedProtocolMessageType('PreviousReply', (_mess
   })
 _sym_db.RegisterMessage(PreviousReply)
 
+SeekAbsoluteRequest = _reflection.GeneratedProtocolMessageType('SeekAbsoluteRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SEEKABSOLUTEREQUEST,
+  '__module__' : 'mpris_pb2'
+  # @@protoc_insertion_point(class_scope:MPRIS.SeekAbsoluteRequest)
+  })
+_sym_db.RegisterMessage(SeekAbsoluteRequest)
+
+SeekAbsoluteReply = _reflection.GeneratedProtocolMessageType('SeekAbsoluteReply', (_message.Message,), {
+  'DESCRIPTOR' : _SEEKABSOLUTEREPLY,
+  '__module__' : 'mpris_pb2'
+  # @@protoc_insertion_point(class_scope:MPRIS.SeekAbsoluteReply)
+  })
+_sym_db.RegisterMessage(SeekAbsoluteReply)
+
 _MPRIS = DESCRIPTOR.services_by_name['MPRIS']
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _PLAYERSTATUS._serialized_start=1279
-  _PLAYERSTATUS._serialized_end=1368
+  _PLAYERSTATUS._serialized_start=1360
+  _PLAYERSTATUS._serialized_end=1449
   _MPRISUPDATEREQUEST._serialized_start=51
   _MPRISUPDATEREQUEST._serialized_end=71
   _MPRISPLAYERPROPERTIES._serialized_start=74
@@ -197,6 +213,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _PREVIOUSREQUEST._serialized_end=1260
   _PREVIOUSREPLY._serialized_start=1262
   _PREVIOUSREPLY._serialized_end=1277
-  _MPRIS._serialized_start=1371
-  _MPRIS._serialized_end=1818
+  _SEEKABSOLUTEREQUEST._serialized_start=1279
+  _SEEKABSOLUTEREQUEST._serialized_end=1337
+  _SEEKABSOLUTEREPLY._serialized_start=1339
+  _SEEKABSOLUTEREPLY._serialized_end=1358
+  _MPRIS._serialized_start=1452
+  _MPRIS._serialized_end=1971
 # @@protoc_insertion_point(module_scope)

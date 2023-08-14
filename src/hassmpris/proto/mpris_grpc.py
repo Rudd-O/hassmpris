@@ -40,6 +40,10 @@ class MPRISBase(abc.ABC):
         pass
 
     @abc.abstractmethod
+    async def SeekAbsolute(self, stream: 'grpclib.server.Stream[mpris_pb2.SeekAbsoluteRequest, mpris_pb2.SeekAbsoluteReply]') -> None:
+        pass
+
+    @abc.abstractmethod
     async def SetPosition(self, stream: 'grpclib.server.Stream[mpris_pb2.SetPositionRequest, mpris_pb2.SetPositionReply]') -> None:
         pass
 
@@ -80,6 +84,12 @@ class MPRISBase(abc.ABC):
                 grpclib.const.Cardinality.UNARY_UNARY,
                 mpris_pb2.SeekRequest,
                 mpris_pb2.SeekReply,
+            ),
+            '/MPRIS.MPRIS/SeekAbsolute': grpclib.const.Handler(
+                self.SeekAbsolute,
+                grpclib.const.Cardinality.UNARY_UNARY,
+                mpris_pb2.SeekAbsoluteRequest,
+                mpris_pb2.SeekAbsoluteReply,
             ),
             '/MPRIS.MPRIS/SetPosition': grpclib.const.Handler(
                 self.SetPosition,
@@ -128,6 +138,12 @@ class MPRISStub:
             '/MPRIS.MPRIS/Seek',
             mpris_pb2.SeekRequest,
             mpris_pb2.SeekReply,
+        )
+        self.SeekAbsolute = grpclib.client.UnaryUnaryMethod(
+            channel,
+            '/MPRIS.MPRIS/SeekAbsolute',
+            mpris_pb2.SeekAbsoluteRequest,
+            mpris_pb2.SeekAbsoluteReply,
         )
         self.SetPosition = grpclib.client.UnaryUnaryMethod(
             channel,
